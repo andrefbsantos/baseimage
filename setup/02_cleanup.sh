@@ -29,4 +29,4 @@ done
 echo '# /lib/init/fstab: cleared out for bare-bones Docker' > /lib/init/fstab
 
 # let Upstart know it's in a container
-echo "export container=docker" >> /etc/environment
+echo "export CONTAINER=docker" >> /etc/environment
