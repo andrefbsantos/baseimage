@@ -1,0 +1,8 @@
+---
+
+- name: install
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - { include: ruby.yml } 
