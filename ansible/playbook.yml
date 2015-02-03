@@ -1,0 +1,42 @@
+---
+
+- name: install
+  hosts: localhost
+  connection: local
+
+  vars:
+    ruby_supported:
+     - ruby1.9.3
+     - ruby2.0
+     - ruby2.1
+     - ruby2.2
+
+    packages:
+     - ruby1.9.3
+     - nodejs
+     - redis
+     - nginx
+     - passenger
+     - memcached
+
+  tasks:
+    - include: basic.yml
+
+    - include: ruby.yml
+      when: "{{ ruby_supported | intersect(packages)| length == 1 }}"
+
+    - include: nodejs.yml
+      when: "'nodejs' in packages"
+
+    - include: passenger.yml
+      when: "'passenger' in packages"
+
+    - include: memcached.yml
+      when: "'memcached' in packages"
+
+    - include: redis.yml
+      when: "'redis' in packages"
+
+    - include: nginx.yml
+      when: "'nginx' in packages"
+

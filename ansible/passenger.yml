@@ -1,0 +1,21 @@
+---
+
+- name: Import the Passenger GPG key into apt
+  apt_key:
+   keyserver: keyserver.ubuntu.com
+   id: 561F9B9CAC40B2F7   
+   state: present
+
+- name: Add Passenger deb repository
+  apt_repository:
+   repo: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ ansible_distribution_release }} main'
+   state: present
+
+- name: Install Passenger
+  apt:
+   pkg: "{{ item }}"
+   state: installed
+   update_cache: yes
+   install_recommends: yes
+  with_items:
+   - passenger
