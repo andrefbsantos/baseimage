@@ -1,0 +1,42 @@
+---
+
+- name: Install runit
+  apt:
+   pkg: "runit"
+   state: installed
+   update_cache: yes
+   cache_valid_time: 3600
+
+- name: runit directory
+  file:
+   path: /etc/service
+   owner: root
+   group: root
+   state: directory
+
+- set_fact:
+   services:
+
+- name: runit {{ item }}
+  file:
+   path: "/etc/service/{{ item }}"
+   owner: root
+   group: root
+   state: directory
+  with_items:
+
+- file:
+   path: "/etc/service/{{ item }}/down"
+   owner: root
+   group: root
+   state: touch
+  with_items:
+
+- name: runit script for {{ item }}
+  copy:
+   src: "runit/{{ item }}"
+   dest: "/etc/service/{{ item }}/run"
+   owner: root
+   group: root
+   mode: 755
+  with_items:
