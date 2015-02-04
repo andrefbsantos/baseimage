@@ -10,6 +10,8 @@
      - ruby2.0
      - ruby2.1
      - ruby2.2
+    
+    container: true
 
     packages:
      - ruby1.9.3
