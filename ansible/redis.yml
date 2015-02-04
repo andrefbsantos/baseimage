@@ -10,5 +10,4 @@
    - redis-server 
    - libhiredis-dev
 
-- { include: runit.yml, runit_scripts: [ "redis" ] }
-  when: container
+- { include: runit.yml, runit_scripts: [ "redis" ], when: container }
