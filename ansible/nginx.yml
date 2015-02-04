@@ -9,5 +9,5 @@
   with_items:
    - "{% if 'passenger' in packages %}nginx-extras{% else %}nginx{% endif %}"
 
-- include: runit.yml runit_scripts: [ "nginx", "nx-log-forwarder" ]
+- { include: runit.yml, runit_scripts: [ "nginx", "nx-log-forwarder" ] }
   when: container

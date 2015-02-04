@@ -7,5 +7,5 @@
    update_cache: yes
    cache_valid_time: 3600
 
-- include: runit.yml runit_scripts: [ "memcached" ]
+- { include: runit.yml, runit_scripts: [ "memcached" ] }
   when: container
