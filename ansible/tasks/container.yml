@@ -1,0 +1,28 @@
+---
+
+- shell: echo {{ item }} hold | dpkg --set-selections
+  with_items:
+    - udev
+    - initscripts
+    - upstart
+
+- command: dpkg-divert --local --rename --add {{ item }}
+  with_items:
+    - /sbin/start
+    - /sbin/initctl
+    - /usr/bin/ischroot
+    - /usr/bin/chfn
+
+- file:
+    src: "/bin/true"
+    dest: "{{ item }}"
+    owner: root
+    group: root
+    force: yes
+    state: link
+  with_items:
+    - /sbin/start
+    - /sbin/initctl
+    - /usr/bin/ischroot
+    - /usr/bin/chfn
+

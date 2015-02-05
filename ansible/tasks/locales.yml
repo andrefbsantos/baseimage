@@ -1,0 +1,13 @@
+---
+
+- name: copy locales
+  copy:
+   src: files/locales
+   dest: /etc/default/locales
+   owner: root
+   group: root
+   mode: 0644
+
+- name: reconfigure locales
+  command: dpkg-reconfigure --frontend noninteractive locales
+
