@@ -15,10 +15,10 @@
 
     packages:
      - ruby1.9.3
-     - nodejs
+#     - nodejs
      - redis
      - nginx
-     - passenger
+#     - passenger
      - memcached
 
   tasks:
