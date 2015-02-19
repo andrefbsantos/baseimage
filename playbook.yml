@@ -1,0 +1,17 @@
+---
+
+- name: install docker container
+  hosts: localhost
+  connection: local
+
+  vars:
+    box_container: true
+    box_packages:
+      - ruby1.9.3
+      - passenger
+      - memcached
+      - redis
+      - nginx
+
+  roles:
+    - { role: ansible.box }

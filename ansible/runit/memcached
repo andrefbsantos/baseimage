@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec /usr/bin/memcached -u nobody >> /var/log/memcached 2>&1
