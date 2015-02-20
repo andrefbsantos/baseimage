@@ -1,0 +1,7 @@
+box_packages:
+  - ruby2.1
+  - redis
+  - nginx
+  - passenger
+  - memcached
+

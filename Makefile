@@ -1,16 +1,33 @@
-IMAGE_NAME = jacoelho/base
-TAG = latest
-BUILD = $(shell bash -c 'echo $$RANDOM')
+IMAGE_NAME = jacoelho
+TAG = 0.1
+BUILD_CMD = docker build --no-cache --rm=true -t
+TARGETS = ruby19-full ruby19 ruby21
 
-all: base
+.PHONY: $(TARGETS) compact clean test
 
-base:
-	docker build --no-cache --rm=true -t $(IMAGE_NAME) .
+all: $(TARGETS)
+
+ruby19-full:
+	cp  $@.yml answer.yml
+	$(BUILD_CMD) $(IMAGE_NAME)/$@:$(TAG) .
+
+ruby19:
+	cp  $@.yml answer.yml
+	$(BUILD_CMD) $(IMAGE_NAME)/$@:$(TAG) .
+
+ruby21:
+	cp  $@.yml answer.yml
+	$(BUILD_CMD) $(IMAGE_NAME)/$@:$(TAG) .
 
 compact:
-	docker export `docker run -d $(IMAGE_NAME):$(TAG) true` > image.tar
-	docker import - $(IMAGE_NAME):$(TAG) < image.tar
-	rm -f image.tar
+	@for image in $(TARGETS); do\
+		docker export `docker run -d $(IMAGE_NAME)/$$image:$(TAG) true` > image.tar; \
+		docker import - $(IMAGE_NAME)/$$image:$(TAG) < image.tar; \
+		rm -f image.tar; \
+	done
+
+clean:
+	rm -fr answer.yml
 
 test:
 	docker run --rm -t -i $(IMAGE_NAME):$(TAG) /sbin/my_init -- bash -l

@@ -6,12 +6,10 @@
 
   vars:
     box_container: true
-    box_packages:
-      - ruby1.9.3
-      - passenger
-      - memcached
-      - redis
-      - nginx
+    box_github_https: true
+    box_user: rails
+    box_group: rails
+    box_webpath: /var/www/service
 
   roles:
     - { role: ansible.box }
