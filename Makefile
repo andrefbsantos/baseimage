@@ -30,4 +30,4 @@ clean:
 	rm -fr answer.yml
 
 test:
-	docker run --rm -t -i $(IMAGE_NAME):$(TAG) /sbin/my_init -- bash -l
+	docker run --rm -t -i $(IMAGE_NAME)/$(IMAGE):$(TAG) /sbin/my_init -- bash -l
