@@ -1,0 +1,7 @@
+box_packages:
+  - ruby1.9.3
+  - redis
+  - nginx
+  - passenger
+  - memcached
+

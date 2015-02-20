@@ -1,9 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Jose Coelho <jacoelho@outlook.com>
 
-ADD . /
+ADD . /tmp
 
-RUN /build.sh && \
-  rm -fr /setup
+RUN /tmp/bootstrap.sh
 
-CMD ["/sbin/init"]
+CMD ["/sbin/my_init"]

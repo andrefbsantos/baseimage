@@ -1,0 +1,15 @@
+---
+
+- name: install docker container
+  hosts: localhost
+  connection: local
+
+  vars:
+    box_container: true
+    box_github_https: true
+    box_user: rails
+    box_group: rails
+    box_webpath: /var/www/service
+
+  roles:
+    - { role: ansible.box }
