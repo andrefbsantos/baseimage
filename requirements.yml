@@ -1,0 +1,4 @@
+---
+
+- src: https://github.com/jacoelho/ansible.box.git
+  path: roles
