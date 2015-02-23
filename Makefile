@@ -3,7 +3,7 @@ TAG = 0.1
 BUILD_CMD = docker build --no-cache --rm=true -t
 TARGETS = ruby19-full ruby19 ruby21
 
-.PHONY: $(TARGETS) compact clean test
+.PHONY: $(TARGETS) compact clean test push
 
 all: $(TARGETS)
 
@@ -26,6 +26,10 @@ compact:
 		rm -f image.tar; \
 	done
 
+push:
+	@for image in $(TARGETS); do\
+		docker push $(IMAGE_NAME)/$$image:$(TAG) ;\
+	done
 clean:
 	rm -fr answer.yml
 
