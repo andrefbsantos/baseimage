@@ -19,5 +19,5 @@ popd
 # cleanup
 apt-get autoremove -y
 apt-get clean -y
-rm -rf /var/lib/{apt,dpkg,cache,log}/ 
+rm -rf /var/lib/{apt,cache,log}/ 
 rm -fr /tmp/* /var/tmp/*

@@ -6,10 +6,11 @@
 
   vars:
     box_container: true
+    box_upgrade: false
     box_github_https: true
     box_user: rails
     box_group: rails
-    box_webpath: /var/www/service
+    box_webpath: /var/www/service/current
 
   roles:
     - { role: ansible.box }
