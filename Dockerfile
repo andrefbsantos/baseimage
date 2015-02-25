@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.04.2
 MAINTAINER Jose Coelho <jacoelho@outlook.com>
 
 ADD . /tmp
