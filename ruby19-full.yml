@@ -1,8 +1,0 @@
-box_packages:
-  - ruby1.9.3
-  - nodejs
-  - redis
-  - nginx
-  - passenger
-  - memcached
-

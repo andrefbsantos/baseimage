@@ -1,15 +1,11 @@
 IMAGE_NAME = jacoelho
 TAG = 0.1
 BUILD_CMD = docker build --no-cache --rm=true -t
-TARGETS = ruby19-full ruby19 ruby21
+TARGETS = ruby19 ruby21
 
 .PHONY: $(TARGETS) compact clean test push tag_latest
 
 all: $(TARGETS)
-
-ruby19-full:
-	cp  $@.yml answer.yml
-	$(BUILD_CMD) $(IMAGE_NAME)/$@:$(TAG) .
 
 ruby19:
 	cp  $@.yml answer.yml
