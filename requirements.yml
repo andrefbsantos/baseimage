@@ -1,4 +1,5 @@
 ---
 
-- src: https://github.com/jacoelho/ansible.box.git
+- src: https://github.com/andrefbsantos/ansible.box.git
+  version: before_rewrite
   path: roles

@@ -1,5 +1,5 @@
-IMAGE_NAME = jacoelho
-TAG = 0.1
+IMAGE_NAME = andrefbsantos
+TAG = 0.3
 BUILD_CMD = docker build --no-cache --rm=true -t
 TARGETS = ruby19 ruby21
 

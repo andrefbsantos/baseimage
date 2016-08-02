@@ -5,4 +5,3 @@ box_packages:
   - nginx
   - passenger
   - memcached
-
